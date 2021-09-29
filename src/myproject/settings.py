@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    # my project basec
+    # my project based
+    'mypage',
     'products',
 ]
 
