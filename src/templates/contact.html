@@ -3,5 +3,18 @@
 {% block content %}
 
 <h1><b>Contact</b></h1>
+
+<p>
+    {{ name }}, 
+    {{ age }},
+    {{ place }}, 
+    {{ number }}
+</p>
+
+<ul>
+    {% for other in companies %}
+        <li>{{ forloop.counter }} - {{ other }}</li>
+    {% endfor %}
+</ul>
  
-{% endblock %}
+{% endblock content %}

@@ -11,8 +11,22 @@ def home_view(request, *args, **kwargs):
 
 
 def contact_view(request, *args, **kwargs):
-    return render(request, "contact.html", {})
+    context = {
+        "name": "Bruce Wayne",
+        "age": 20,
+        "place": "Gotham",
+        "number": 1234567890,
+        "companies": ["wayne aerospace", "wayne aviation", "wayne biotech", "wayne construction"]
+        
+    }
+    return render(request, "contact.html", context)
 
 
 def about_view(request, *args, **kwargs):
-    return render(request, "about.html", {})
+    context = {
+        "my_text": "Django Learning",
+        "this_is_true": True,
+        "my_number": 12345,
+        "my_list": [234, 456, 789]
+    }
+    return render(request, "about.html", context)
