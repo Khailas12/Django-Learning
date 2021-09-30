@@ -17,7 +17,7 @@ def contact_view(request, *args, **kwargs):
         "place": "Gotham",
         "number": 1234567890,
         "companies": ["wayne aerospace", "wayne aviation", "wayne biotech", "wayne construction"]
-        
+
     }
     return render(request, "contact.html", context)
 
@@ -30,3 +30,13 @@ def about_view(request, *args, **kwargs):
         "my_list": [234, 456, 789]
     }
     return render(request, "about.html", context)
+
+
+def practice_view(request, *args, **kwargs):
+    context = {
+        "blah": "whatever",
+        "other": "cool",
+        "num": 321,
+        "listing": ["kfdbke", "lbsfdibd", 9834, "febbfi"]
+    }
+    return render(request, 'practice.html', context)
