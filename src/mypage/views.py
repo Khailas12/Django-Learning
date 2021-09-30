@@ -27,16 +27,18 @@ def about_view(request, *args, **kwargs):
         "my_text": "Django Learning",
         "this_is_true": True,
         "my_number": 12345,
-        "my_list": [234, 456, 789]
+        "my_list": [234, 456, 789, 'abc']
     }
     return render(request, "about.html", context)
 
 
 def practice_view(request, *args, **kwargs):
     context = {
+        "title": "django",
         "blah": "whatever",
         "other": "cool",
         "num": 321,
-        "listing": ["kfdbke", "lbsfdibd", 9834, "febbfi"]
+        "listing": ["kfdbke", "lbsfdibd", 9834, "febbfi"],
+        "my_html": "<h1>hello world</h1>"
     }
     return render(request, 'practice.html', context)

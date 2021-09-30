@@ -3,6 +3,9 @@
 {% block content %}
 
 <h1>Practice</h1>
+<h2>{{ title|capfirst|upper }}</h2>    <!-- This will capitalize the assigned title and make it uppercase-->
+
+{{ my_html|safe }}   <!-- without safe it shows <h1>hello world</h1> as the way we've assigned-->
 
 <p>
     {{ blah }},
