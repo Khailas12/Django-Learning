@@ -1,7 +1,8 @@
 from .forms import RawProductForm
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
 from .forms import ProductForm
+from django.http import Http404
 
 
 # def product_create_view(request):
@@ -50,11 +51,21 @@ def product_create_view(request):
     }
     return render(request, 'products/product_create.html', context)
 
-def dynamic_lookup_view(request):
-    obj = Product.objects.get('title')
+
+def dynamic_lookup_view(request, id):
+    # obj = Product.objects.get(id=my_id)
+    # obj = get_object_or_404(Product, id=my_id)
+    
+    try:
+        obj = Product.objects.get(id=id)
+    except Product.DoesNotExist:
+        raise Http404
+    
     context = {
         'object': obj
     }
+    return render(request, 'products/product_detail.html', context)
+
 
 def product_detail_view(request):
     obj = Product.objects.get(id=1)
@@ -66,3 +77,15 @@ def product_detail_view(request):
         "object": obj,
     }
     return render(request, "products/product_detail.html", context)
+
+
+def product_delete_view(request, id):
+    obj = get_object_or_404(Product, id=id)
+    if request.method == 'POST':
+        obj.delete()
+        return redirect('../')
+        
+    context = {
+        'object': obj
+    }
+    return render(request, 'products/product_delete.html', context)
