@@ -3,8 +3,8 @@
 
 {% block content %}
 
-<!-- csrf token helps to avoid the forbidden call of 404-->
-<form action='.' method='POST'>{% csrf_token %}   <!-- The action will send the form to any URL we assigns-->
+<!-- csrf_token helps to avoid the forbidden call of 404-->
+<form action='.' method='POST'>{% csrf_token %}   <!-- action='.' will send the form to any URL we assigns-->
     {{ form.as_p }}     <!-- as_p is paragraph-->
     <input type='submit' value='Save'/>
 </form>
