@@ -6,6 +6,6 @@ class Product(models.Model):
     description = models.TextField(blank=True, null=True)
     price = models.DecimalField(decimal_places=2, max_digits=10000000)
     summary = models.TextField(blank=False, null=False)
-    featured = models.BooleanField(null=True)   # null=True or default=True
+    featured = models.BooleanField(default=True)   # null=True or default=True
     # null -> purely database-related
     # blank -> validation-related. If a field has blank=True , form validation will allow entry of an empty value. If a field has blank=False, the field will be required.

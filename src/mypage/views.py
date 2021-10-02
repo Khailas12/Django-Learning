@@ -3,11 +3,11 @@ from django.http import HttpResponse
 
 
 def home_view(request, *args, **kwargs):
-    print(args, kwargs)
     # this shows the username in the terminal and shows anonymous in incognito mode
     print(request.user)
     # return HttpResponse('<h1>Hello World</h1>')
-    return render(request, "home.html", {})
+    context = {}
+    return render(request, "home.html", context)
 
 
 def contact_view(request, *args, **kwargs):
