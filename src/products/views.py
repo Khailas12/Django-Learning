@@ -1,18 +1,36 @@
+from .forms import RawProductForm
 from django.shortcuts import render
 from .models import Product
 from .forms import ProductForm
 
 
 def product_create_view(request):
-    form = ProductForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        form = ProductForm()
+    my_form = RawProductForm()
+    
+    if request.method == 'POST':
+        my_form = RawProductForm(request.POST)  # request.POST will show the field validation required as a msg or warning if we hover the pointer in the field
 
+        if my_form.is_valid():
+            print(my_form.cleaned_data) # the data after successful validation
+            Product.objects.create(**my_form.cleaned_data)
+            
+        else:
+            print(my_form.errors)   # if it's an invalid in input, eg: if we enter a letter where only numbers are allowed
+            
+        
     context = {
-        'form': form
+        'form': my_form
     }
-    return render(request, "products/product_create.html", context)
+    return render(request, 'products/product_create.html', context)
+
+
+# def product_create_view(request):
+#     if request.method == 'POST':
+#         my_title = request.POST.get('title')
+#         print(my_title)
+        
+#     context = {}
+#     return render(request, "products/product_create.html", context)
 
 
 def product_detail_view(request):
