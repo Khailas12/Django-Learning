@@ -7,7 +7,7 @@ from django.http import Http404
 
 # def product_create_view(request):
 #     my_form = RawProductForm()
-    
+
 #     if request.method == 'POST':
 #         my_form = RawProductForm(request.POST)  # request.POST will show the field validation required as a msg or warning if we hover the pointer in the field
 
