@@ -21,6 +21,7 @@ from mypage.views import home_view, contact_view, about_view, practice_view
 urlpatterns = [
     path('products/', include('products.urls')),
     path('blog/', include('blog.urls')),
+    path('article/', include('blog_2.urls')),
     
     path('', home_view, name='home'),
     path('contact/', contact_view, name='contact'),

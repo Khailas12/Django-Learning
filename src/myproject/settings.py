@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     # my project based
     'mypage',
     'products',
-    'blog'
+    'blog',
+    'blog_2',
 ]
 
 MIDDLEWARE = [
