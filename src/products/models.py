@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 class Product(models.Model):
     title = models.CharField(max_length=120)  # max_length is important
@@ -9,3 +9,7 @@ class Product(models.Model):
     featured = models.BooleanField(default=True)   # null=True or default=True
     # null -> purely database-related
     # blank -> validation-related. If a field has blank=True , form validation will allow entry of an empty value. If a field has blank=False, the field will be required.
+
+
+    def get_absolute_url(self):
+        return reverse('product-detail', kwargs={'id': self.id})    # f'/products/{self.id}'
