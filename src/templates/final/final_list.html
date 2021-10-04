@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for instance in final_list %}
+    <p>
+        {{ instance.id }} - {{ instance.title }}
+    </p>
+{% endfor %}
+
+{% endblock content %}
